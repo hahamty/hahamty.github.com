@@ -3,7 +3,7 @@ title: Hexo Guides
 tags:
   - Hexo
   - Blog
-date: 2016-10-02 11:56:47
+date: 2016-10-02 12:37:04
 ---
 
 
@@ -25,6 +25,7 @@ hexo deploy
 2. Configure the `backup` section of `_config.yml`
 3. Run the following command:
 ```
+hexo clean
 hexo backup
 ```
 
