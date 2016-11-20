@@ -29,6 +29,9 @@ hexo clean
 hexo backup
 ```
 
+# Hexo Update Instructions #
+[https://hexo.io/news/2015/03/05/hexo-3-0-released/](https://hexo.io/news/2015/03/05/hexo-3-0-released/)
+
 # Some Useful Plugins #
 [hexo-math](https://github.com/akfish/hexo-math) is a tool for writing math formula in the articles.
 [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git) is a tool for deploying our blog into the GitHub.

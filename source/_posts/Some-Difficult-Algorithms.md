@@ -29,3 +29,9 @@ date: 2016-10-06 00:23:25
 
 [Wikipedia](https://en.wikipedia.org/wiki/Segment_tree)
 [GeeksforGeeks Part I](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/) & [GeeksforGeeks Part II](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
+
+# Graph #
+
+## Fleury’s Algorithm ##
+
+[GeeksforGeeks](http://www.geeksforgeeks.org/fleurys-algorithm-for-printing-eulerian-path/)
