@@ -4,32 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Some Difficult Algorithms | hahamty&#39;s blog</title>
+    <title>Summary of MIT 6.824 Lab 1 | hahamty&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Tianyu Meng">
     
 
     
-    <meta name="description" content="StringManacher’s AlgorithmWikipediaGeeksforGeeks Part I &amp;amp; GeeksforGeeks Part II
-Knuth–Morris–Pratt AlgorithmWikipediaGeeksforGeeks
-TreeBinary Indexed TreeWikipediaTopCoder
-Segment TreeWikipediaGee">
+    <meta name="description" content="Part IImplement doMap() and doReduce() to distribute the works to different computers/threads.
+Some Important Points
+In doMap(), the KV pairs with the same key should be put into the same file. A good">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Some Difficult Algorithms">
-<meta property="og:url" content="https://hahamty.github.com/2016/10/06/Some-Difficult-Algorithms/index.html">
+<meta property="og:title" content="Summary of MIT 6.824 Lab 1">
+<meta property="og:url" content="https://hahamty.github.com/2016/11/06/Summary-of-MIT-6-824-Lab-1/index.html">
 <meta property="og:site_name" content="hahamty's blog">
-<meta property="og:description" content="StringManacher’s AlgorithmWikipediaGeeksforGeeks Part I &amp;amp; GeeksforGeeks Part II
-Knuth–Morris–Pratt AlgorithmWikipediaGeeksforGeeks
-TreeBinary Indexed TreeWikipediaTopCoder
-Segment TreeWikipediaGee">
-<meta property="og:updated_time" content="2016-11-20T20:05:35.000Z">
+<meta property="og:description" content="Part IImplement doMap() and doReduce() to distribute the works to different computers/threads.
+Some Important Points
+In doMap(), the KV pairs with the same key should be put into the same file. A good">
+<meta property="og:updated_time" content="2016-11-20T20:30:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Some Difficult Algorithms">
-<meta name="twitter:description" content="StringManacher’s AlgorithmWikipediaGeeksforGeeks Part I &amp;amp; GeeksforGeeks Part II
-Knuth–Morris–Pratt AlgorithmWikipediaGeeksforGeeks
-TreeBinary Indexed TreeWikipediaTopCoder
-Segment TreeWikipediaGee">
+<meta name="twitter:title" content="Summary of MIT 6.824 Lab 1">
+<meta name="twitter:description" content="Part IImplement doMap() and doReduce() to distribute the works to different computers/threads.
+Some Important Points
+In doMap(), the KV pairs with the same key should be put into the same file. A good">
 
     
     <link rel="alternative" href="/atom.xml" title="hahamty&#39;s blog" type="application/atom+xml">
@@ -85,14 +82,14 @@ Segment TreeWikipediaGee">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/10/06/Some-Difficult-Algorithms/" title="Some Difficult Algorithms" itemprop="url">Some Difficult Algorithms</a>
+      <a href="/2016/11/06/Summary-of-MIT-6-824-Lab-1/" title="Summary of MIT 6.824 Lab 1" itemprop="url">Summary of MIT 6.824 Lab 1</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Tianyu Meng" target="_blank" itemprop="author">Tianyu Meng</a>
 		
   <p class="article-time">
-    <time datetime="2016-10-06T07:23:25.000Z" itemprop="datePublished"> Published 2016-10-06</time>
+    <time datetime="2016-11-06T20:30:05.000Z" itemprop="datePublished"> Published 2016-11-06</time>
     
   </p>
 </header>
@@ -101,15 +98,14 @@ Segment TreeWikipediaGee">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#String"><span class="toc-number">1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Manacher’s-Algorithm"><span class="toc-number">1.1.</span> <span class="toc-text">Manacher’s Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Knuth–Morris–Pratt-Algorithm"><span class="toc-number">1.2.</span> <span class="toc-text">Knuth–Morris–Pratt Algorithm</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tree"><span class="toc-number">2.</span> <span class="toc-text">Tree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Binary-Indexed-Tree"><span class="toc-number">2.1.</span> <span class="toc-text">Binary Indexed Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Segment-Tree"><span class="toc-number">2.2.</span> <span class="toc-text">Segment Tree</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Graph"><span class="toc-number">3.</span> <span class="toc-text">Graph</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fleury’s-Algorithm"><span class="toc-number">3.1.</span> <span class="toc-text">Fleury’s Algorithm</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-I"><span class="toc-number">1.</span> <span class="toc-text">Part I</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-III"><span class="toc-number">2.</span> <span class="toc-text">Part III</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="Manacher’s-Algorithm"><a href="#Manacher’s-Algorithm" class="headerlink" title="Manacher’s Algorithm"></a>Manacher’s Algorithm</h2><p><a href="https://en.wikipedia.org/wiki/Longest_palindromic_substring" target="_blank" rel="external">Wikipedia</a><br><a href="http://www.geeksforgeeks.org/manachers-algorithm-linear-time-longest-palindromic-substring-part-1/" target="_blank" rel="external">GeeksforGeeks Part I</a> &amp; <a href="http://www.geeksforgeeks.org/manachers-algorithm-linear-time-longest-palindromic-substring-part-2/" target="_blank" rel="external">GeeksforGeeks Part II</a></p>
-<h2 id="Knuth–Morris–Pratt-Algorithm"><a href="#Knuth–Morris–Pratt-Algorithm" class="headerlink" title="Knuth–Morris–Pratt Algorithm"></a>Knuth–Morris–Pratt Algorithm</h2><p><a href="https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm" target="_blank" rel="external">Wikipedia</a><br><a href="http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/" target="_blank" rel="external">GeeksforGeeks</a></p>
-<h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h1><h2 id="Binary-Indexed-Tree"><a href="#Binary-Indexed-Tree" class="headerlink" title="Binary Indexed Tree"></a>Binary Indexed Tree</h2><p><a href="https://en.wikipedia.org/wiki/Fenwick_tree" target="_blank" rel="external">Wikipedia</a><br><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/binary-indexed-trees/" target="_blank" rel="external">TopCoder</a></p>
-<h2 id="Segment-Tree"><a href="#Segment-Tree" class="headerlink" title="Segment Tree"></a>Segment Tree</h2><p><a href="https://en.wikipedia.org/wiki/Segment_tree" target="_blank" rel="external">Wikipedia</a><br><a href="http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/" target="_blank" rel="external">GeeksforGeeks Part I</a> &amp; <a href="http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/" target="_blank" rel="external">GeeksforGeeks Part II</a></p>
-<h1 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h1><h2 id="Fleury’s-Algorithm"><a href="#Fleury’s-Algorithm" class="headerlink" title="Fleury’s Algorithm"></a>Fleury’s Algorithm</h2><p><a href="http://www.geeksforgeeks.org/fleurys-algorithm-for-printing-eulerian-path/" target="_blank" rel="external">GeeksforGeeks</a></p>
+		<h1 id="Part-I"><a href="#Part-I" class="headerlink" title="Part I"></a>Part I</h1><p>Implement <code>doMap()</code> and <code>doReduce()</code> to distribute the works to different computers/threads.</p>
+<p><strong>Some Important Points</strong></p>
+<p>In <code>doMap()</code>, the KV pairs with the same key should be put into the same file. A good way to determine whether KV pairs should be put in the same file is to calculate the hash of the key by a hash function.<br>In <code>doReduce()</code>, the KV pairs after reducing should be sorted before they are finally being merged into a file.</p>
+<h1 id="Part-III"><a href="#Part-III" class="headerlink" title="Part III"></a>Part III</h1><p>It is easy to have deadlock while using channel in Go. The channel in Go is blocking and the thread has to wait until the lock is released.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -118,7 +114,7 @@ Segment TreeWikipediaGee">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Algorithms/">Algorithms</a>
+  <span></span> <a href="/tags/Distributed-Systems/">Distributed Systems</a><a href="/tags/Map-Reduce/">Map Reduce</a>
   </div>
 
 </div>
@@ -127,7 +123,7 @@ Segment TreeWikipediaGee">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://hahamty.github.com/2016/10/06/Some-Difficult-Algorithms/" data-title="Some Difficult Algorithms | hahamty&#39;s blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="https://hahamty.github.com/2016/11/06/Summary-of-MIT-6-824-Lab-1/" data-title="Summary of MIT 6.824 Lab 1 | hahamty&#39;s blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -140,19 +136,11 @@ Segment TreeWikipediaGee">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/11/06/Summary-of-MIT-6-824-Lab-1/" title="Summary of MIT 6.824 Lab 1">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Summary of MIT 6.824 Lab 1</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/10/02/Hexo-Guides/"  title="Hexo Guides">
+<a href="/2016/10/06/Some-Difficult-Algorithms/"  title="Some Difficult Algorithms">
  <strong>下一篇：</strong><br/> 
- <span>Hexo Guides
+ <span>Some Difficult Algorithms
 </span>
 </a>
 </div>
@@ -167,7 +155,7 @@ Segment TreeWikipediaGee">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#String"><span class="toc-number">1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Manacher’s-Algorithm"><span class="toc-number">1.1.</span> <span class="toc-text">Manacher’s Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Knuth–Morris–Pratt-Algorithm"><span class="toc-number">1.2.</span> <span class="toc-text">Knuth–Morris–Pratt Algorithm</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tree"><span class="toc-number">2.</span> <span class="toc-text">Tree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Binary-Indexed-Tree"><span class="toc-number">2.1.</span> <span class="toc-text">Binary Indexed Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Segment-Tree"><span class="toc-number">2.2.</span> <span class="toc-text">Segment Tree</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Graph"><span class="toc-number">3.</span> <span class="toc-text">Graph</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fleury’s-Algorithm"><span class="toc-number">3.1.</span> <span class="toc-text">Fleury’s Algorithm</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-I"><span class="toc-number">1.</span> <span class="toc-text">Part I</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-III"><span class="toc-number">2.</span> <span class="toc-text">Part III</span></a></li></ol>
  
   </div>
 

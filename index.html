@@ -74,6 +74,64 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/11/06/Summary-of-MIT-6-824-Lab-1/" title="Summary of MIT 6.824 Lab 1" itemprop="url">Summary of MIT 6.824 Lab 1</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Tianyu Meng" target="_blank" itemprop="author">Tianyu Meng</a>
+		
+  <p class="article-time">
+    <time datetime="2016-11-06T20:30:05.000Z" itemprop="datePublished"> Published 2016-11-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Part-I"><a href="#Part-I" class="headerlink" title="Part I"></a>Part I</h1><p>Implement <code>doMap()</code> and <code>doReduce()</code> to distribute the works to different computers/threads.</p>
+<p><strong>Some Important Points</strong></p>
+<p>In <code>doMap()</code>, the KV pairs with the same key should be put into the same file. A good way to determine whether KV pairs should be put in the same file is to calculate the hash of the key by a hash function.<br>In <code>doReduce()</code>, the KV pairs after reducing should be sorted before they are finally being merged into a file.</p>
+<h1 id="Part-III"><a href="#Part-III" class="headerlink" title="Part III"></a>Part III</h1><p>It is easy to have deadlock while using channel in Go. The channel in Go is blocking and the thread has to wait until the lock is released.</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Distributed-Systems/">Distributed Systems</a><a href="/tags/Map-Reduce/">Map Reduce</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/10/06/Some-Difficult-Algorithms/" title="Some Difficult Algorithms" itemprop="url">Some Difficult Algorithms</a>
   </h1>
   <p class="article-author">By
@@ -91,6 +149,7 @@
 <h2 id="Knuth–Morris–Pratt-Algorithm"><a href="#Knuth–Morris–Pratt-Algorithm" class="headerlink" title="Knuth–Morris–Pratt Algorithm"></a>Knuth–Morris–Pratt Algorithm</h2><p><a href="https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm" target="_blank" rel="external">Wikipedia</a><br><a href="http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/" target="_blank" rel="external">GeeksforGeeks</a></p>
 <h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h1><h2 id="Binary-Indexed-Tree"><a href="#Binary-Indexed-Tree" class="headerlink" title="Binary Indexed Tree"></a>Binary Indexed Tree</h2><p><a href="https://en.wikipedia.org/wiki/Fenwick_tree" target="_blank" rel="external">Wikipedia</a><br><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/binary-indexed-trees/" target="_blank" rel="external">TopCoder</a></p>
 <h2 id="Segment-Tree"><a href="#Segment-Tree" class="headerlink" title="Segment Tree"></a>Segment Tree</h2><p><a href="https://en.wikipedia.org/wiki/Segment_tree" target="_blank" rel="external">Wikipedia</a><br><a href="http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/" target="_blank" rel="external">GeeksforGeeks Part I</a> &amp; <a href="http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/" target="_blank" rel="external">GeeksforGeeks Part II</a></p>
+<h1 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h1><h2 id="Fleury’s-Algorithm"><a href="#Fleury’s-Algorithm" class="headerlink" title="Fleury’s Algorithm"></a>Fleury’s Algorithm</h2><p><a href="http://www.geeksforgeeks.org/fleurys-algorithm-for-printing-eulerian-path/" target="_blank" rel="external">GeeksforGeeks</a></p>
 
         
         
@@ -158,6 +217,7 @@
 <li>Run the following command:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo backup</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<h1 id="Hexo-Update-Instructions"><a href="#Hexo-Update-Instructions" class="headerlink" title="Hexo Update Instructions"></a>Hexo Update Instructions</h1><p><a href="https://hexo.io/news/2015/03/05/hexo-3-0-released/" target="_blank" rel="external">https://hexo.io/news/2015/03/05/hexo-3-0-released/</a></p>
 <h1 id="Some-Useful-Plugins"><a href="#Some-Useful-Plugins" class="headerlink" title="Some Useful Plugins"></a>Some Useful Plugins</h1><p><a href="https://github.com/akfish/hexo-math" target="_blank" rel="external">hexo-math</a> is a tool for writing math formula in the articles.<br><a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a> is a tool for deploying our blog into the GitHub.<br><a href="https://github.com/coneycode/hexo-git-backup" target="_blank" rel="external">hexo-git-backup</a> is a tool for backing up our blog.</p>
 
         
@@ -210,6 +270,10 @@
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
 			
 		
@@ -218,11 +282,11 @@
 			
 		
 			
-				<li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+				<li><a href="/tags/Distributed-Systems/" title="Distributed Systems">Distributed Systems<sup>1</sup></a></li>
 			
 		
 			
-		
+				<li><a href="/tags/Map-Reduce/" title="Map Reduce">Map Reduce<sup>1</sup></a></li>
 			
 		
 		</ul>
