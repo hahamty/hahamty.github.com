@@ -68,267 +68,87 @@
     <div id="container">
       <div id="main">
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/11/25/Summary-of-MIT-6-824-Lab-2/" title="Summary of MIT 6.824 Lab 2" itemprop="url">Summary of MIT 6.824 Lab 2</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Tianyu Meng" target="_blank" itemprop="author">Tianyu Meng</a>
-		
-  <p class="article-time">
-    <time datetime="2016-11-25T21:46:16.000Z" itemprop="datePublished"> Published 2016-11-25</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="Task-1"><a href="#Task-1" class="headerlink" title="Task 1"></a>Task 1</h1><p>Implement leader election (<code>RequestVote()</code>) and heartbeats (empty <code>AppendEntries()</code>).</p>
-<p><strong>Some Important Points</strong></p>
-<ul>
-<li>A candidate only votes for itself.</li>
-<li>Any server that finds a larger term will become follower state.</li>
-<li>A constant loop for each server should be implemented to determine whether its timer is fired.</li>
-<li>The timeout of the follower state and the candidate state is better to be the same, since a candidate may be not up to date and be rejected in <code>RequestVote()</code>.</li>
-<li>All the modification to the variables in a server should be in critical session to make the operation atomic. However, we should be careful about the locking step, since it is easy to deadlock and to ask for a lock twice (the thread will be blocked by itself).</li>
-</ul>
-<h1 id="Task-2"><a href="#Task-2" class="headerlink" title="Task 2"></a>Task 2</h1><p>Implement full <code>AppendEntries()</code> RPC after <code>Start()</code> being called.</p>
-<p><strong>Some Important Points</strong></p>
-<ul>
-<li>In <code>RequestVote()</code>, we only need the last term and the last index of the server to determine whether a candidate is up to date.</li>
-<li>In <code>AppendEntries()</code>, we only need to delete the incompatible log entries.</li>
-</ul>
-<h1 id="Task-3"><a href="#Task-3" class="headerlink" title="Task 3"></a>Task 3</h1><p>Implement persisting in Raft.</p>
-<p><strong>Some Important Points</strong></p>
-<ul>
-<li>The variables needed to be stored are <code>currentTerm</code>, <code>voteFor</code>, and <code>logs</code>, while the other variables are used to record volatile states, so their value can be calculated during runtime.</li>
-</ul>
-<h1 id="Other-notes"><a href="#Other-notes" class="headerlink" title="Other notes"></a>Other notes</h1><ul>
-<li>It is imperative to determine the state of server, such as <code>raftState</code> and <code>currentTerm</code>, before doing any operation.</li>
-<li>The leader only commit the logs of its current term to avoid overwrite previous logs incorrectly.</li>
-<li>Same update can be committed for several times in Lab 2, since in Lab 3 we will check whether the committed update is duplicated.</li>
-<li><code>NextIndex</code> should be added into <code>AppendEntriesReply</code> to facilitate the synchronization between leader and follower. Otherwise, the last few tests will be failed.</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://pdos.csail.mit.edu/6.824/papers/raft-extended.pdf" target="_blank" rel="external">In Search of an Understandable Consensus Algorithm</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
   
-  <span></span> <a href="/tags/Distributed-Systems/">Distributed Systems</a><a href="/tags/Raft-protocol/">Raft protocol</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/11/06/Summary-of-MIT-6-824-Lab-1/" title="Summary of MIT 6.824 Lab 1" itemprop="url">Summary of MIT 6.824 Lab 1</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Tianyu Meng" target="_blank" itemprop="author">Tianyu Meng</a>
-		
-  <p class="article-time">
-    <time datetime="2016-11-06T20:30:05.000Z" itemprop="datePublished"> Published 2016-11-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="Part-I"><a href="#Part-I" class="headerlink" title="Part I"></a>Part I</h1><p>Implement <code>doMap()</code> and <code>doReduce()</code> to distribute the works to different computers/threads.</p>
-<p><strong>Some Important Points</strong></p>
-<p>In <code>doMap()</code>, the KV pairs with the same key should be put into the same file. A good way to determine whether KV pairs should be put in the same file is to calculate the hash of the key by a hash function.<br>In <code>doReduce()</code>, the KV pairs after reducing should be sorted before they are finally being merged into a file.</p>
-<h1 id="Part-III"><a href="#Part-III" class="headerlink" title="Part III"></a>Part III</h1><p>It is easy to have deadlock while using channel in Go. The channel in Go is blocking and the thread has to wait until the lock is released.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
+<section class="post" itemscope itemprop="blogitem">
   
-  <span></span> <a href="/tags/Distributed-Systems/">Distributed Systems</a><a href="/tags/Map-Reduce/">Map Reduce</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/10/06/Some-Difficult-Algorithms/" title="Some Difficult Algorithms" itemprop="url">Some Difficult Algorithms</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Tianyu Meng" target="_blank" itemprop="author">Tianyu Meng</a>
-		
-  <p class="article-time">
-    <time datetime="2016-10-06T07:23:25.000Z" itemprop="datePublished"> Published 2016-10-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="Manacher’s-Algorithm"><a href="#Manacher’s-Algorithm" class="headerlink" title="Manacher’s Algorithm"></a>Manacher’s Algorithm</h2><p><a href="https://en.wikipedia.org/wiki/Longest_palindromic_substring" target="_blank" rel="external">Wikipedia</a><br><a href="http://www.geeksforgeeks.org/manachers-algorithm-linear-time-longest-palindromic-substring-part-1/" target="_blank" rel="external">GeeksforGeeks Part I</a> &amp; <a href="http://www.geeksforgeeks.org/manachers-algorithm-linear-time-longest-palindromic-substring-part-2/" target="_blank" rel="external">GeeksforGeeks Part II</a></p>
-<h2 id="Knuth–Morris–Pratt-Algorithm"><a href="#Knuth–Morris–Pratt-Algorithm" class="headerlink" title="Knuth–Morris–Pratt Algorithm"></a>Knuth–Morris–Pratt Algorithm</h2><p><a href="https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm" target="_blank" rel="external">Wikipedia</a><br><a href="http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/" target="_blank" rel="external">GeeksforGeeks</a></p>
-<h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h1><h2 id="Binary-Indexed-Tree"><a href="#Binary-Indexed-Tree" class="headerlink" title="Binary Indexed Tree"></a>Binary Indexed Tree</h2><p><a href="https://en.wikipedia.org/wiki/Fenwick_tree" target="_blank" rel="external">Wikipedia</a><br><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/binary-indexed-trees/" target="_blank" rel="external">TopCoder</a></p>
-<h2 id="Segment-Tree"><a href="#Segment-Tree" class="headerlink" title="Segment Tree"></a>Segment Tree</h2><p><a href="https://en.wikipedia.org/wiki/Segment_tree" target="_blank" rel="external">Wikipedia</a><br><a href="http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/" target="_blank" rel="external">GeeksforGeeks Part I</a> &amp; <a href="http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/" target="_blank" rel="external">GeeksforGeeks Part II</a></p>
-<h1 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h1><h2 id="Fleury’s-Algorithm"><a href="#Fleury’s-Algorithm" class="headerlink" title="Fleury’s Algorithm"></a>Fleury’s Algorithm</h2><p><a href="http://www.geeksforgeeks.org/fleurys-algorithm-for-printing-eulerian-path/" target="_blank" rel="external">GeeksforGeeks</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
+    <a href="/2016/11/25/Summary-of-MIT-6-824-Lab-2/" title="Summary of MIT 6.824 Lab 2" itemprop="url">
   
-  <span></span> <a href="/tags/Algorithms/">Algorithms</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
+    <h1 itemprop="name">Summary of MIT 6.824 Lab 2</h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" >Task 1Implement leader election (RequestVote()) and heartbeats (empty AppendEntries()).
+Some Important Points
+
+A candidate only votes for it</p>
+        
     
-      <a href="/2016/10/02/Hexo-Guides/" title="Hexo Guides" itemprop="url">Hexo Guides</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Tianyu Meng" target="_blank" itemprop="author">Tianyu Meng</a>
-		
-  <p class="article-time">
-    <time datetime="2016-10-02T19:37:04.000Z" itemprop="datePublished"> Published 2016-10-02</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="Write-New-Articles"><a href="#Write-New-Articles" class="headerlink" title="Write New Articles"></a>Write New Articles</h1><p>We can create a draft by <code>hexo new draft draftName</code> and publish it by <code>hexo publish draftName</code>.<br>Also, we can directly create a new post by <code>hexo new postName</code>.</p>
-<h1 id="Deploy-Our-Blog"><a href="#Deploy-Our-Blog" class="headerlink" title="Deploy Our Blog"></a>Deploy Our Blog</h1><ol>
-<li>Install the deploy plugins.</li>
-<li>Configure the <code>deploy</code> section of <code>_config.yml</code></li>
-<li>Run the following command:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="Backup-Our-Blog"><a href="#Backup-Our-Blog" class="headerlink" title="Backup Our Blog"></a>Backup Our Blog</h1><ol>
-<li>Install the backup plugin.</li>
-<li>Configure the <code>backup</code> section of <code>_config.yml</code></li>
-<li>Run the following command:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo backup</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="Hexo-Update-Instructions"><a href="#Hexo-Update-Instructions" class="headerlink" title="Hexo Update Instructions"></a>Hexo Update Instructions</h1><p><a href="https://hexo.io/news/2015/03/05/hexo-3-0-released/" target="_blank" rel="external">https://hexo.io/news/2015/03/05/hexo-3-0-released/</a></p>
-<h1 id="Some-Useful-Plugins"><a href="#Some-Useful-Plugins" class="headerlink" title="Some Useful Plugins"></a>Some Useful Plugins</h1><p><a href="https://github.com/akfish/hexo-math" target="_blank" rel="external">hexo-math</a> is a tool for writing math formula in the articles.<br><a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a> is a tool for deploying our blog into the GitHub.<br><a href="https://github.com/coneycode/hexo-git-backup" target="_blank" rel="external">hexo-git-backup</a> is a tool for backing up our blog.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
+    <time datetime="2016-11-25T21:46:16.000Z" itemprop="datePublished">2016-11-25</time>
+  </a>
+</section>
 
 
-  <div class="article-tags">
+
+
+
+
   
-  <span></span> <a href="/tags/Hexo/">Hexo</a><a href="/tags/Blog/">Blog</a>
-  </div>
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/11/06/Summary-of-MIT-6-824-Lab-1/" title="Summary of MIT 6.824 Lab 1" itemprop="url">
+  
+    <h1 itemprop="name">Summary of MIT 6.824 Lab 1</h1>
+    
+     
+           <p itemprop="description" >Part IImplement doMap() and doReduce() to distribute the works to different computers/threads.
+Some Important Points
+In doMap(), the KV pair</p>
+        
+    
+    <time datetime="2016-11-06T20:30:05.000Z" itemprop="datePublished">2016-11-06</time>
+  </a>
+</section>
 
-</div>
 
 
 
 
-<div class="comments-count">
-	
-</div>
 
-</footer>
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/10/06/Some-Difficult-Algorithms/" title="Some Difficult Algorithms" itemprop="url">
+  
+    <h1 itemprop="name">Some Difficult Algorithms</h1>
+    
+     
+           <p itemprop="description" >StringManacher’s AlgorithmWikipediaGeeksforGeeks Part I &amp;amp; GeeksforGeeks Part II
+Knuth–Morris–Pratt AlgorithmWikipediaGeeksforGeeks
+TreeB</p>
+        
+    
+    <time datetime="2016-10-06T07:23:25.000Z" itemprop="datePublished">2016-10-06</time>
+  </a>
+</section>
 
 
-    </article>
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/10/02/Hexo-Guides/" title="Hexo Guides" itemprop="url">
+  
+    <h1 itemprop="name">Hexo Guides</h1>
+    
+     
+           <p itemprop="description" >Write New ArticlesWe can create a draft by hexo new draft draftName and publish it by hexo publish draftName.Also, we can directly create a </p>
+        
+    
+    <time datetime="2016-10-02T19:37:04.000Z" itemprop="datePublished">2016-10-02</time>
+  </a>
+</section>
 
 
 
@@ -355,7 +175,15 @@
 			
 		
 			
+				<li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Map-Reduce/" title="Map Reduce">Map Reduce<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Raft-protocol/" title="Raft protocol">Raft protocol<sup>1</sup></a></li>
 			
 		
 			
@@ -367,11 +195,7 @@
 			
 		
 			
-				<li><a href="/tags/Algorithms/" title="Algorithms">Algorithms<sup>1</sup></a></li>
-			
 		
-			
-				<li><a href="/tags/Raft-protocol/" title="Raft protocol">Raft protocol<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -415,7 +239,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Tianyu Meng">Tianyu Meng</a>
 		
