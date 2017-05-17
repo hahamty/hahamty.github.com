@@ -18,6 +18,7 @@ date: 2016-10-06 00:23:25
 [Wikipedia](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
 [GeeksforGeeks](http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/)
 
+
 # Tree #
 
 ## Binary Indexed Tree ##
@@ -30,8 +31,21 @@ date: 2016-10-06 00:23:25
 [Wikipedia](https://en.wikipedia.org/wiki/Segment_tree)
 [GeeksforGeeks Part I](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/) & [GeeksforGeeks Part II](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
 
+
 # Graph #
 
 ## Fleury’s Algorithm ##
 
 [GeeksforGeeks](http://www.geeksforgeeks.org/fleurys-algorithm-for-printing-eulerian-path/)
+
+
+# Geometry #
+
+## Orientation ##
+
+[GeeksforGeeks](http://www.geeksforgeeks.org/orientation-3-ordered-points/)
+
+## Convex Hull ##
+
+[GeeksforGeeks Set I: Jarvis’s Algorithm or Wrapping](http://www.geeksforgeeks.org/convex-hull-set-1-jarviss-algorithm-or-wrapping/)
+[GeeksforGeeks Set II: Graham Scan](http://www.geeksforgeeks.org/convex-hull-set-2-graham-scan/)
